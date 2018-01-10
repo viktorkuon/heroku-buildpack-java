@@ -29,3 +29,6 @@ if has_maven_wrapper $BUILD_DIR; then
   rm -rf $BUILD_DIR/.m2
 fi
 
+for DIR in ".m2" ".maven" ; do
+  cp -r $CACHE_DIR/$DIR $BUILD_DIR/$DIR
+done
