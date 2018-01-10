@@ -24,6 +24,10 @@ install_jdk ${BUILD_DIR}
 
 run_mvn "compile" $BUILD_DIR $CACHE_DIR
 
+for DIR in ".m2" ".maven" ; do
+  cp -r $CACHE_DIR/$DIR $BUILD_DIR/$DIR
+done
+
 if has_maven_wrapper $BUILD_DIR; then
   cache_copy ".m2/wrapper" $BUILD_DIR $CACHE_DIR
   rm -rf $BUILD_DIR/.m2
